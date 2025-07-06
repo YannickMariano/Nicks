@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "dgSpecHash": "lHf9+xKH1QeE41CadGAbM0GHwL+Y9u1k88YUlQrAzr+wzRwzmFCUb3nDyZMj3PGkNP7bwEl7vky1emu0ZsGb8w==",
+  "success": true,
+  "projectFilePath": "D:\\Projet\\C#\\Nick'sProject\\Nick'sProject\\Nick'sProject.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Tsanta\\.nuget\\packages\\materialdesigncolors\\5.2.1\\materialdesigncolors.5.2.1.nupkg.sha512",
+    "C:\\Users\\Tsanta\\.nuget\\packages\\materialdesignthemes\\5.2.1\\materialdesignthemes.5.2.1.nupkg.sha512",
+    "C:\\Users\\Tsanta\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\Tsanta\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.2\\microsoft.extensions.logging.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\Tsanta\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512",
+    "C:\\Users\\Tsanta\\.nuget\\packages\\npgsql\\9.0.3\\npgsql.9.0.3.nupkg.sha512",
+    "C:\\Users\\Tsanta\\.nuget\\packages\\serilog\\2.10.0\\serilog.2.10.0.nupkg.sha512",
+    "C:\\Users\\Tsanta\\.nuget\\packages\\system.diagnostics.diagnosticsource\\8.0.1\\system.diagnostics.diagnosticsource.8.0.1.nupkg.sha512",
+    "C:\\Users\\Tsanta\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\Tsanta\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
+    "C:\\Users\\Tsanta\\.nuget\\packages\\system.text.json\\8.0.5\\system.text.json.8.0.5.nupkg.sha512"
+  ],
+  "logs": []
+}
