@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using Nick_sProject.View;
+
 namespace Nick_sProject
 {
     /// <summary>
@@ -23,6 +25,12 @@ namespace Nick_sProject
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Employe employeWindow = new Employe();
+            employeWindow.Show();
         }
     }
 }
