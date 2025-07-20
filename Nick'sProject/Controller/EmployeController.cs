@@ -16,30 +16,38 @@ namespace Nick_sProject.Controller
         {
             try
             {
-                var conn = DbConfig.GetConnection();
+                using var conn = DbConfig.GetConnection();
 
-                var query = "INSERT INTO \"Employe\" (\"Nom\", \"Prenom\", \"Adresse\", \"NumTel\", \"MotDePasse\", \"Statut\", \"Identifiant\") VALUES (@name, @prenom, @adresse, @numtel, @motdepasse, @statut, @identifiant)";
-                var cmd = new NpgsqlCommand(query ,conn);
+                employe.Statut = "Employe";
 
-                cmd.Parameters.AddWithValue("name", employe.Name);
-                cmd.Parameters.AddWithValue("prenom", employe.Prenom);
-                cmd.Parameters.AddWithValue("adresse", employe.Adresse);
-                cmd.Parameters.AddWithValue("numtel", employe.NumTel);
-                cmd.Parameters.AddWithValue("motdepasse", employe.MotDePasse);
-                cmd.Parameters.AddWithValue("statut", employe.Statut);
-                cmd.Parameters.AddWithValue("identifiant", employe.Identifiant);
+                var query = "INSERT INTO \"Employe\" (\"Nom\", \"Prenom\", \"Adresse\", \"NumTel\", \"Statut\") " +
+                            "VALUES (@nom, @prenom, @adresse, @numtel, @statut)";
+
+                using var cmd = new NpgsqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@nom", employe.Name);
+                cmd.Parameters.AddWithValue("@prenom", employe.Prenom);
+                cmd.Parameters.AddWithValue("@adresse", employe.Adresse);
+                cmd.Parameters.AddWithValue("@numtel", employe.NumTel);
+                cmd.Parameters.AddWithValue("@statut", employe.Statut);
+                             
+
 
                 int rowsAffected = cmd.ExecuteNonQuery();
-                if (rowsAffected > 0)
-                    MessageBox.Show("Ajout réussi !", "Succès", MessageBoxButton.OK, MessageBoxImage.Information);
-                else
-                    MessageBox.Show("Aucun employé ajouté.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(
+                    rowsAffected > 0 ? "Ajout réussi !" : "Aucun employé ajouté.",
+                    "Résultat", MessageBoxButton.OK, rowsAffected > 0 ? MessageBoxImage.Information : MessageBoxImage.Warning
+                );
+                if (string.IsNullOrEmpty(employe.Name))
+                {
+                    throw new Exception("Le nom de l'employé est requis.");
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Erreur lors de l'ajout : {ex.Message}", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
 
         public void ModifierEmploye(Employe employe)
         {
@@ -97,21 +105,20 @@ namespace Nick_sProject.Controller
             {
                 using var conn = DbConfig.GetConnection();
                 
-                var cmd = new NpgsqlCommand("SELECT \"IdEmp\", \"Nom\", \"Prenom\", \"Adresse\", \"NumTel\", \"MotDePasse\", \"Statut\", \"Identifiant\" FROM \"Employe\"", conn);
+                var cmd = new NpgsqlCommand("SELECT \"IdEmp\", \"Nom\", \"Prenom\", \"NumTel\", \"Statut\", \"Adresse\", \"DateConnection\" FROM \"Employe\"", conn);
                 using var reader = cmd.ExecuteReader();
+
                 while (reader.Read())
                 {
-                    employes.Add(new Employe(
-                        reader.GetInt32(0),
-                        reader.GetString(1),
-                        reader.GetString(2),
-                        reader.GetString(3),
-                        reader.GetString(4),
-                        reader.GetString(5),
-                        reader.GetString(6),
-                        reader.GetString(7)
-                    ));
-                    Console.WriteLine("LISTAGE EMPLOYE");
+                    employes.Add(new Employe
+                    { 
+                        Id = reader.GetInt32(0),    
+                        Name = $"{reader.GetString(1)} {reader.GetString(2)}",
+                        NumTel = reader.GetString(3),
+                        Statut = reader.GetString(4),
+                        Adresse = reader.GetString(5),
+                        DerniereConnexion = reader.IsDBNull(6) ? "-" : reader.GetDateTime(6).ToString("dd/MM/yyyy HH:mm:ss")
+                    });
                 }
             }
             catch (Exception ex)

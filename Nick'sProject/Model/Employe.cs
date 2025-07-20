@@ -14,9 +14,13 @@ namespace Nick_sProject.Model
         public string Adresse { get; set; }
         public string NumTel { get; set; }
         public string MotDePasse { get; set; }
+        public string DerniereConnexion { get; set; }
         public string Statut { get; set; }
         public string Identifiant { get; set; }
-        
+        public DateTime? DateConnection { get; set; }
+
+        public String NomComplet => $"{Name} {Prenom}";
+
         public Employe() { }
         public Employe(int id, string name, string prenom, string adresse, string numTel, string mdp, string statut, string identifiant)
         {
@@ -28,6 +32,33 @@ namespace Nick_sProject.Model
             MotDePasse = mdp;
             Statut = statut;         
             Identifiant = identifiant;
+        }
+
+        public Employe(int id, string name, string prenom, string adresse, string numTel)
+        {
+            Id = id;
+            Name = name;
+            Prenom = prenom;
+            Adresse = adresse;
+            NumTel = numTel;
+        }
+
+        public Employe(string name, string prenom, string adresse, string numTel)
+        {
+            Name = name;
+            Prenom = prenom;
+            Adresse = adresse;
+            NumTel = numTel;
+        }
+
+        public Employe(int id, string name, string numTel, string adresse, string statut, DateTime? dateConnection)
+        {
+            Id = id;
+            Name = name;
+            NumTel = numTel;
+            Adresse = adresse;
+            Statut = statut;         
+            DateConnection = dateConnection;
         }
     }
 }

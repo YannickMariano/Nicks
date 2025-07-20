@@ -15,6 +15,12 @@ namespace Nick_sProject.View
     public partial class Employe : Window
     {
         private EmployeController _employeController;
+        internal string Prenom;
+        internal string Adresse;
+        internal string NumTel;
+
+        public string DerniereConnexion { get; internal set; }
+        public object Statut { get; internal set; }
 
         public Employe()
         {

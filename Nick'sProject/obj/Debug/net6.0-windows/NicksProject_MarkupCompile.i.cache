@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 D:\ROHY\PROJET\Nicks\Nick'sProject\App.xaml
-3-1947853603
+7-450905337
 1-783576874
-11504116059
+191782479086
 207-1628710847
-MainWindow.xaml;View\Employe.xaml;View\Login.xaml;
+MainWindow.xaml;View\AjoutEmploye.xaml;View\AjoutMatierePremiere.xaml;View\Employe.xaml;View\ListeEmploye.xaml;View\Login.xaml;View\ModifierEmploye.xaml;
 
-False
+True
 

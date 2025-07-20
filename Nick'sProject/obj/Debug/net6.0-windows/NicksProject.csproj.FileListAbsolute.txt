@@ -45,3 +45,12 @@ D:\ROHY\PROJET\Nicks\Nick'sProject\obj\Debug\net6.0-windows\NicksProject_Content
 D:\ROHY\PROJET\Nicks\Nick'sProject\obj\Debug\net6.0-windows\View\Login.baml
 D:\ROHY\PROJET\Nicks\Nick'sProject\obj\Debug\net6.0-windows\View\Login.g.cs
 D:\ROHY\PROJET\Nicks\Nick'sProject\bin\Debug\net6.0-windows\BCrypt.Net-Next.dll
+D:\ROHY\PROJET\Nicks\Nick'sProject\obj\Debug\net6.0-windows\View\AjoutEmploye.g.cs
+D:\ROHY\PROJET\Nicks\Nick'sProject\obj\Debug\net6.0-windows\View\AjoutEmploye.baml
+D:\ROHY\PROJET\Nicks\Nick'sProject\obj\Debug\net6.0-windows\View\ListeEmploye.g.cs
+D:\ROHY\PROJET\Nicks\Nick'sProject\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+D:\ROHY\PROJET\Nicks\Nick'sProject\obj\Debug\net6.0-windows\View\ListeEmploye.baml
+D:\ROHY\PROJET\Nicks\Nick'sProject\obj\Debug\net6.0-windows\View\ModifierEmploye.baml
+D:\ROHY\PROJET\Nicks\Nick'sProject\obj\Debug\net6.0-windows\View\AjoutMatierePremiere.g.cs
+D:\ROHY\PROJET\Nicks\Nick'sProject\obj\Debug\net6.0-windows\View\ModifierEmploye.g.cs
+D:\ROHY\PROJET\Nicks\Nick'sProject\obj\Debug\net6.0-windows\View\AjoutMatierePremiere.baml

@@ -7,10 +7,22 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="View\AjoutEmploye.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\AjoutMatierePremiere.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\Employe.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\ListeEmploye.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\Login.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\ModifierEmploye.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

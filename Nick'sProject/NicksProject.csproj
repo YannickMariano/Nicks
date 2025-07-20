@@ -17,6 +17,24 @@
 
   <ItemGroup>
     <None Remove=".env" />
+    <None Remove="Ressource\ajouter.png" />
+    <None Remove="Ressource\employe.png" />
+    <None Remove="Ressource\employe_white.png" />
+    <None Remove="Ressource\entree_stock.png" />
+    <None Remove="Ressource\entree_stock_white.png" />
+    <None Remove="Ressource\filtre.png" />
+    <None Remove="Ressource\logo.png" />
+    <None Remove="Ressource\logout.png" />
+    <None Remove="Ressource\matiere_premiere.png" />
+    <None Remove="Ressource\matiere_premiere_white.png" />
+    <None Remove="Ressource\modifier.png" />
+    <None Remove="Ressource\parametre.png" />
+    <None Remove="Ressource\recherche.png" />
+    <None Remove="Ressource\sortie_stock.png" />
+    <None Remove="Ressource\sortie_stock_white.png" />
+    <None Remove="Ressource\supprimer.png" />
+    <None Remove="Ressource\tableau_bord.png" />
+    <None Remove="Ressource\user.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,7 +45,6 @@
 
   <ItemGroup>
     <Folder Include="Test\" />
-    <Folder Include="Ressource\" />
     <Folder Include="Service\" />
   </ItemGroup>
 
@@ -37,6 +54,63 @@
 		<PackageReference Include="MaterialDesignThemes" Version="5.2.1" />
 		<PackageReference Include="Npgsql" Version="9.0.3" />
 		<PackageReference Include="Serilog" Version="2.10.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Resource Include="Ressource\ajouter.png">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Ressource\employe.png">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Ressource\employe_white.png">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Ressource\entree_stock.png">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Ressource\entree_stock_white.png">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Ressource\filtre.png">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Ressource\logo.png">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Ressource\logout.png">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Ressource\matiere_premiere.png">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Ressource\matiere_premiere_white.png">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Ressource\modifier.png">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Ressource\parametre.png">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Ressource\recherche.png">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Ressource\sortie_stock.png">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Ressource\sortie_stock_white.png">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Ressource\supprimer.png">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Ressource\tableau_bord.png">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Ressource\user.png">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Resource>
 	</ItemGroup>
 
 	<ItemGroup>
