@@ -21,10 +21,12 @@ namespace Nick_sProject.View
     public partial class AjoutEmploye : Window
     {
         private EmployeController _employeController;
-        public AjoutEmploye()
+        private ListeEmploye fenetrePrincipale;
+        public AjoutEmploye(ListeEmploye parent)
         {
             InitializeComponent();
             _employeController = new EmployeController();
+            this.fenetrePrincipale = parent;       
         }
 
         private void AoutEmploye_Click(object sender, RoutedEventArgs e)
@@ -37,16 +39,14 @@ namespace Nick_sProject.View
             );
             _employeController.AjouterEmploye(employe);
 
-            ListeEmploye listeEmploye = new ListeEmploye();
-            listeEmploye.Show();
+            MessageBox.Show("Employé ajouté avec succès !", "Succès", MessageBoxButton.OK, MessageBoxImage.Information);
+            fenetrePrincipale.RafraichirEmploye();
             this.Close();
         }
 
         private void AnnulerAjoutEmploye_Click(object sender, RoutedEventArgs e)
         {
-            ListeEmploye listeEmploye = new ListeEmploye();
-            listeEmploye.Show();
-            this.Close();
+            MessageBox.Show("Voulez-vous vraiment annuler la modification ?", "Annuler", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No, MessageBoxOptions.None);
         }
     }
 }

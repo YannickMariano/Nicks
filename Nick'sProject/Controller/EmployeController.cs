@@ -8,7 +8,7 @@ using System.Windows.Controls;
 
 namespace Nick_sProject.Controller
 {
-    internal class EmployeController
+    public class EmployeController
     {
         public EmployeController() { }
 
@@ -56,14 +56,20 @@ namespace Nick_sProject.Controller
                 using var conn = DbConfig.GetConnection();
 
                 var cmd = new NpgsqlCommand(
-                    "UPDATE \"Employe\" SET \"Nom\"=@name, \"Prenom\"=@prenom, \"Adresse\"=@adresse, \"NumTel\"=@numtel, \"MotDePasse\"=@motdepasse, \"Statut\"=@statut WHERE \"IdEmp\"=@id", conn);
-                cmd.Parameters.AddWithValue("id", employe.Id);
+                    "UPDATE \"Employe\" SET \"Nom\"=@name, \"Prenom\"=@prenom, \"Adresse\"=@adresse, \"NumTel\"=@numtel, \"Statut\"=@statut, \"Identifiant\"=@identifiant, \"MotDePasse\"=@motdepasse WHERE \"IdEmp\"=@id", conn);
+
+                string hashedPassword = BCrypt.Net.BCrypt.HashPassword(employe.MotDePasse);
+
                 cmd.Parameters.AddWithValue("name", employe.Name);
                 cmd.Parameters.AddWithValue("prenom", employe.Prenom);
                 cmd.Parameters.AddWithValue("adresse", employe.Adresse);
                 cmd.Parameters.AddWithValue("numtel", employe.NumTel);
-                cmd.Parameters.AddWithValue("motdepasse", employe.MotDePasse);
                 cmd.Parameters.AddWithValue("statut", employe.Statut);
+                cmd.Parameters.Add("identifiant", NpgsqlTypes.NpgsqlDbType.Varchar);
+                cmd.Parameters["identifiant"].Value = employe.Identifiant ?? (object)DBNull.Value; 
+                cmd.Parameters.Add("motdepasse", NpgsqlTypes.NpgsqlDbType.Varchar);
+                cmd.Parameters["motdepasse"].Value = hashedPassword ?? (object)DBNull.Value;
+                cmd.Parameters.AddWithValue("id", employe.Id);
 
                 int rowsAffected = cmd.ExecuteNonQuery();
                 if (rowsAffected > 0)
@@ -73,9 +79,22 @@ namespace Nick_sProject.Controller
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erreur lors de la modification : {ex.Message}", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Veuillez Enregistrer un identifaint different", "Astuce", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
+
+        public static bool ExisteIdentifiantPourUnAutreEmploye(string identifiant, int idEmploye)
+        {
+            using var conn = DbConfig.GetConnection();
+            var cmd = new NpgsqlCommand(
+                "SELECT COUNT(*) FROM \"Employe\" WHERE \"Identifiant\" = @identifiant AND \"IdEmp\" != @id", conn);
+            cmd.Parameters.AddWithValue("identifiant", identifiant);
+            cmd.Parameters.AddWithValue("id", idEmploye);
+
+            long count = (long)cmd.ExecuteScalar();
+            return count > 0;
+        }
+
 
         public void SupprimerEmploye(int id)
         {
@@ -127,5 +146,40 @@ namespace Nick_sProject.Controller
             }
             return employes;
         }
+
+        public Employe GetEmployeById(int id)
+        {
+            Employe employe = null;
+
+            using var conn = DbConfig.GetConnection();   
+            string query = "SELECT \"IdEmp\", \"Nom\", \"Prenom\", \"Adresse\", \"NumTel\", \"Statut\", \"Identifiant\", \"MotDePasse\" FROM \"Employe\" WHERE \"IdEmp\" = @id";
+
+            using (var cmd = new NpgsqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("id", id);
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        employe = new Employe
+                        {
+                            Id = reader.GetInt32(0),
+                            Name = reader.GetString(1),
+                            Prenom = reader.GetString(2),
+                            Adresse = reader.GetString(3),
+                            NumTel = reader.GetString(4),
+                            Statut = reader.GetString(5),
+                            Identifiant = reader.IsDBNull(6) ? null : reader.GetString(6),
+                            MotDePasse = reader.IsDBNull(7) ? null : reader.GetString(7),
+                        };
+                    }
+                }
+            }
+            
+
+            return employe;
+        }
+
     }
 }

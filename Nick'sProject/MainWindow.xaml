@@ -18,7 +18,7 @@
             </Label.RenderTransform>
         </Label>
         <Button Content="Utilisateur" HorizontalAlignment="Left" Margin="36,129,0,0" VerticalAlignment="Top" Click="Button_Click" Width="130" Height="34"/>
-        <Button Content="Ajout Employe" HorizontalAlignment="Left" Margin="28,0,0,0" VerticalAlignment="Center" Height="36" Width="146" Click="Button_Click_1"/>
+        <Button Content="Ajout Employe" HorizontalAlignment="Left" Margin="28,0,0,0" VerticalAlignment="Center" Height="36" Width="146"/>
         <Button Content="Liste Employe" HorizontalAlignment="Left" Margin="30,277,0,0" VerticalAlignment="Top" Height="36" Width="144" Click="Button_Click_2"/>
         <Label Content="MATIERE PREMIERE" HorizontalAlignment="Left" Margin="305,61,0,0" VerticalAlignment="Top"/>
         <Button Content="Ajout Matiere Premiere" HorizontalAlignment="Left" Margin="281,123,0,0" VerticalAlignment="Top" Height="37" Width="161"/>

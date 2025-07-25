@@ -33,12 +33,6 @@ namespace Nick_sProject
             employeWindow.Show();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            AjoutEmploye ajoutEmployeWindow = new AjoutEmploye();
-            ajoutEmployeWindow.Show();
-        }
-
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             ListeEmploye listeEmploye = new ListeEmploye();

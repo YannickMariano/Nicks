@@ -31,6 +31,11 @@ namespace Nick_sProject.View
         public ListeEmploye()
         {
             InitializeComponent();
+            RafraichirEmploye();
+        }
+
+        public void RafraichirEmploye()
+        {
             ChargeEmployes();
             AfficherPage(pageActuelle);
         }
@@ -138,8 +143,8 @@ namespace Nick_sProject.View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            AjoutEmploye ajoutEmploye = new AjoutEmploye();
-            ajoutEmploye.Show();
+            AjoutEmploye ajoutEmploye = new AjoutEmploye(this);
+            ajoutEmploye.ShowDialog();
         }
 
         private void Employe_Button_Click(object sender, RoutedEventArgs e)
@@ -177,54 +182,14 @@ namespace Nick_sProject.View
             if (EmplpoyeDataGrid.SelectedItem is Model.Employe selectedEmploye)
             {
                 _employeController.SupprimerEmploye(selectedEmploye.Id);
-                ChargeEmployes();
-                AfficherPage(pageActuelle);
+                MessageBox.Show("Voulez-vous vraiment supprimer cet employé ?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No, MessageBoxOptions.None);
+                RafraichirEmploye();
             }
             else
             {
                 MessageBox.Show("Veuillez sélectionner un employé à supprimer.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-        }
-
-        //private void Button_Modifier_Click(object sender, RoutedEventArgs e)
-        //{
-        //    try
-        //    {
-
-        //        var button = sender as Button;
-        //    var employe = button?.Tag as Employe; // Ou button.DataContext as Employe
-
-        //    //if (employe == null)
-        //    //{
-        //    //    // Debug: Affichez ce qui est réellement dans le Tag
-        //    //    MessageBox.Show($"Debug - Tag contient: {button?.Tag?.GetType().Name ?? "null"}");
-        //    //    return;
-        //    //}
-
-        //        var modifierWindow = new ModifierEmploye(employe);
-        //        modifierWindow.ShowDialog();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Erreur :" + ex);
-        //    }            
-        //}
-
-        //private void Button_Modifier_Click(object sender, RoutedEventArgs e)
-        //{
-        //    var button = sender as Button;
-        //    var employe = button?.Tag as Employe;
-        //    if (employe != null)
-        //    {
-        //        MessageBox.Show("Employe trouvé.");
-        //    }
-        //    else
-        //    {
-        //        var contenuTag = button?.Tag != null ? button.Tag.ToString() : "Tag est null";
-        //        var typeTag = button?.Tag?.GetType().FullName ?? "null";
-        //        MessageBox.Show($"Echec cast - Contenu du Tag: {contenuTag}\nType du Tag: {typeTag}");
-        //    }
-        //}
+        }       
 
         private void Button_Modifier_Click(object sender, RoutedEventArgs e)
         {
@@ -232,8 +197,13 @@ namespace Nick_sProject.View
             var employe = button?.Tag as Nick_sProject.Model.Employe;
             if (employe != null)
             {
-                var modificationWindow = new ModifierEmploye(employe);
-                modificationWindow.ShowDialog();
+               
+                var employeComplet = _employeController.GetEmployeById(employe.Id);
+                var modifWindow = new ModifierEmploye(employeComplet, _employeController, this);
+                modifWindow.ShowDialog();
+
+              
+                ChargeEmployes();
             }
             else
             {
