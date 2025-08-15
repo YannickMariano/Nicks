@@ -1,3 +1,37 @@
+# Dossiers de build
+bin/
+obj/
+
+**/bin/
+**/obj/
+# Dossiers Visual Studio
+.vs/
+*.user
+*.suo
+
+# Fichiers de build temporaires
+*.exe
+*.dll
+*.pdb
+*.cache
+*.log
+*.dbmdl
+*.bak
+*.tmp
+*.csproj.user
+
+# Fichiers NuGet
+*.nupkg
+*.nuspec
+*.nuget.props
+*.nuget.targets
+
+# Autres
+_ReSharper*/
+*.sln.docstates
+*.vsp
+*.vssscc
+*.vspscc
 # Fichiers Visual Studio
 .vs/
 .env
