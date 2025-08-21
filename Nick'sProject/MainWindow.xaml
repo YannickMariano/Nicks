@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+
+
+
+
+
         <Label Content="EMPLOYE" HorizontalAlignment="Left" Margin="64,68,0,0" VerticalAlignment="Top" Height="35" Width="142" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
@@ -17,11 +22,14 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Button Content="Utilisateur" HorizontalAlignment="Left" Margin="36,129,0,0" VerticalAlignment="Top" Click="Button_Click" Width="130" Height="34"/>
-        <Button Content="Ajout Employe" HorizontalAlignment="Left" Margin="28,0,0,0" VerticalAlignment="Center" Height="36" Width="146"/>
-        <Button Content="Liste Employe" HorizontalAlignment="Left" Margin="30,277,0,0" VerticalAlignment="Top" Height="36" Width="144" Click="Button_Click_2"/>
+
+        <Button x:Name="ShowSidebar" Content="SIDEBAR" HorizontalAlignment="Left" Margin="281,123,0,0" VerticalAlignment="Top" Height="37" Width="161" Click="ShowSidebar_Click"/>
+        <ContentControl x:Name="MainContent" Margin="0,60,603,0"/>
+
+        <Button Content="Utilisateur" HorizontalAlignment="Left" Margin="537,126,0,0" VerticalAlignment="Top" Click="Button_Click" Width="130" Height="34"/>
+        <Button Content="Ajout Employe" HorizontalAlignment="Left" Margin="288,211,0,0" VerticalAlignment="Top" Height="36" Width="146"/>
+        <Button Content="Liste Employe" HorizontalAlignment="Left" Margin="537,211,0,0" VerticalAlignment="Top" Height="36" Width="144" Click="Button_Click_2"/>
         <Label Content="MATIERE PREMIERE" HorizontalAlignment="Left" Margin="305,61,0,0" VerticalAlignment="Top"/>
-        <Button Content="Ajout Matiere Premiere" HorizontalAlignment="Left" Margin="281,123,0,0" VerticalAlignment="Top" Height="37" Width="161"/>
 
     </Grid>
 </Window>

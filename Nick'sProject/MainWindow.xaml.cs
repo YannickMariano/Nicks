@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using Nick_sProject.View;
+using Nick_sProject.View.Layout;
 
 namespace Nick_sProject
 {
@@ -38,6 +39,13 @@ namespace Nick_sProject
             ListeEmploye listeEmploye = new ListeEmploye();
             listeEmploye.Show();
             this.Close();
+        }
+
+        private void ShowSidebar_Click(object sender, RoutedEventArgs e)
+        {
+            var layout = new MainLayout();
+            MainContent.Content = layout;
+            //MainContentPanel.Visibility = Visibility.Visible;
         }
     }
 }

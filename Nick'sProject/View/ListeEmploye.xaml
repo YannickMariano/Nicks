@@ -68,36 +68,6 @@
             </Setter>
         </Style>
 
-        <!-- Style checkbox arrondi -->
-        <Style x:Key="RoundedRectCheckBoxStyle" TargetType="CheckBox">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="CheckBox">
-                        <Grid Width="20" Height="20">
-                            <Border x:Name="Border"
-                                BorderBrush="Black"
-                                BorderThickness="1"
-                                Background="White"
-                                CornerRadius="4"
-                                Width="20"
-                                Height="20"/>
-                            <Path x:Name="CheckMark"
-                              Visibility="Collapsed"
-                              Data="M 4 10 L 8 14 L 16 6"
-                              Stroke="Black"
-                              StrokeThickness="2"
-                              StrokeEndLineCap="Round"
-                              StrokeStartLineCap="Round" />
-                        </Grid>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsChecked" Value="True">
-                                <Setter TargetName="CheckMark" Property="Visibility" Value="Visible" />
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
 
         <!-- Style no border cellule -->
         <Style x:Key="NoCellBorderStyle" TargetType="DataGridCell">
@@ -275,11 +245,13 @@
 
 
                 <!-- COLONNE DE DROITE EN BLANC -->
-                <Border Grid.Column="1"
-                        Background="White"
-                        Opacity="1"
-                        Padding="0,0,0,0"
-                        HorizontalAlignment="Left">
+	<ScrollViewer Grid.Column="1"
+              Background="White"
+              Opacity="1"
+              Padding="0"
+              HorizontalAlignment="Stretch"
+              VerticalScrollBarVisibility="Auto"
+              HorizontalScrollBarVisibility="Disabled">
 
                     <Grid>
                         <Grid.RowDefinitions>
@@ -415,25 +387,7 @@
                                         BorderThickness="1"
                                         CornerRadius="10"
                                         Margin="10,0,10,0"
-                                        VerticalAlignment="Center">
-                                <Button Background="Transparent"
-                                            BorderThickness="0"
-                                            Height="52"
-                                            MinWidth="130"
-                                            Padding="5,0"
-                                            Cursor="Hand">
-                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                        <Image Source="/Ressource/filtre.png"
-                                                   Width="25"
-                                                   Height="25"
-                                                   Margin="0,0,10,0"/>
-                                        <TextBlock Text="Filtres"
-                                                       FontSize="16"
-                                                       FontFamily="Times New Roman"
-                                                       VerticalAlignment="Center" FontWeight="Bold"/>
-                                    </StackPanel>
-                                </Button>
-                            </Border>
+                                        VerticalAlignment="Center"/>
 
                             <!-- Colonne 3 : Bouton Ajouter avec coins arrondis -->
                             <Border Grid.Column="3"
@@ -499,7 +453,6 @@
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5,0">
-                                                <CheckBox Style="{StaticResource RoundedRectCheckBoxStyle}" VerticalAlignment="Center" Margin="5,0"/>
                                                 <StackPanel Orientation="Vertical" Margin="10,0,0,0" VerticalAlignment="Center">
                                                     <TextBlock Text="{Binding NomComplet}" FontSize="14" TextWrapping="Wrap" Margin="0,0,0,5"/>
                                                     <TextBlock Text="{Binding NumTel}" FontSize="14" Foreground="Gray"/>
@@ -652,7 +605,7 @@
 
 
                     </Grid>
-                </Border>
+                </ScrollViewer>
                 <!-- FIN COLONNE DROITE EN BLANC -->
 
             </Grid>

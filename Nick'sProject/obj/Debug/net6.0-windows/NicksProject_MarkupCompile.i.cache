@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\ROHY\PROJET\Nicks\Nick'sProject\obj\Debug\net6.0-windows\
+D:\PROJET\NICKS\Nick'sProject\obj\Debug\net6.0-windows\
 Nick_sProject
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
-D:\ROHY\PROJET\Nicks\Nick'sProject\App.xaml
-7-450905337
+D:\PROJET\NICKS\Nick'sProject\App.xaml
+12-1349627347
 1-783576874
-191782479086
-207-1628710847
-MainWindow.xaml;View\AjoutEmploye.xaml;View\AjoutMatierePremiere.xaml;View\Employe.xaml;View\ListeEmploye.xaml;View\Login.xaml;View\ModifierEmploye.xaml;
+31-1008629189
+2081449031479
+MainWindow.xaml;View\AjoutEmploye.xaml;View\AjoutMatierePremiere.xaml;View\dashboard.xaml;View\Employe.xaml;View\Layout\MainLayout.xaml;View\Layout\NavBar.xaml;View\Layout\stockSidebar.xaml;View\ListeEmploye.xaml;View\Login.xaml;View\ModifierEmploye.xaml;View\testDashboard.xaml;
 
 False
 

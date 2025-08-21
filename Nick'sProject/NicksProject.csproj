@@ -45,11 +45,11 @@
 
   <ItemGroup>
     <Folder Include="Test\" />
-    <Folder Include="Service\" />
   </ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+		<PackageReference Include="dotenv.net" Version="4.0.0" />
 		<PackageReference Include="DotNetEnv" Version="3.1.1" />
 		<PackageReference Include="MaterialDesignThemes" Version="5.2.1" />
 		<PackageReference Include="Npgsql" Version="9.0.3" />
