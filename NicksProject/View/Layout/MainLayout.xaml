@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="NicksProject.View.Layout.MainLayout"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:layout="clr-namespace:NicksProject.View.Layout">
+
+    <Grid>
+        <!-- Structure principale -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="260"/>
+            <!-- Sidebar -->
+            <ColumnDefinition Width="*"/>
+            <!-- Navbar + Main -->
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Navbar -->
+            <RowDefinition Height="*"/>
+            <!-- Contenu principal -->
+        </Grid.RowDefinitions>
+
+        <!-- SIDEBAR sur 2 lignes (Navbar + Content) -->
+        <layout:stockSidebar Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Loaded="stockSidebar_Loaded"/>
+
+        <!-- NAVBAR -->
+        <layout:NavBar Grid.Row="0" Grid.Column="1"/>
+
+        <!-- CONTENU PRINCIPAL -->
+        <ContentControl x:Name="MainContent"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Background="White"/>
+    </Grid>
+</UserControl>

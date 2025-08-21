@@ -1,0 +1,16 @@
+﻿<Window x:Class="NicksProject.View.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Connexion" Height="250" Width="400" WindowStartupLocation="CenterScreen">
+    <Grid Margin="20">
+        <StackPanel>
+            <Label Content="Identifiant"/>
+            <TextBox x:Name="txtIdentifiant" Margin="0,5"/>
+
+            <Label Content="Mot de passe"/>
+            <PasswordBox x:Name="txtMotDePasse" Margin="0,5"/>
+
+            <Button Content="Se connecter" Click="Connexion_Click" Margin="0,15,0,0"/>
+        </StackPanel>
+    </Grid>
+</Window>
